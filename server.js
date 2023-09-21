@@ -12,8 +12,6 @@ const profile = require("./controllers/profile");
 const image = require("./controllers/image");
 const api = require("./controllers/api");
 
-
-
 const db = knex({
   client: "pg",
   connection: {

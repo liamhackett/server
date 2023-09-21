@@ -2,17 +2,16 @@ const express = require('express');
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const knex = require('knex');
+const multer = require("multer");
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
 const register = require('./controllers/register');
 const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
-
 const api = require('./controllers/api');
-const multer = require("multer");
 
-const storage = multer.memoryStorage(); // Store the file in memory
-const upload = multer({ storage: storage });
 
 
 const db = knex({

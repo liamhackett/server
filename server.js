@@ -12,6 +12,8 @@ const profile = require("./controllers/profile");
 const image = require("./controllers/image");
 const api = require("./controllers/api");
 
+process.end.NODE_TLS_REJECT_UNAUTHORIZED = 0;
+
 const db = knex({
   client: "pg",
   connection: {
@@ -19,6 +21,7 @@ const db = knex({
     ssl: true
   }
 });
+
 const app = express();
 
 app.use(cors())

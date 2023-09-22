@@ -15,11 +15,8 @@ const api = require("./controllers/api");
 const db = knex({
   client: "pg",
   connection: {
-    host : "127.0.0.1",
-    port : 5432,
-    user : "liamhackett",
-    password : "",
-    database : "smart-brain"
+    host: process.env.DATABASE_URL,
+    ssl: true
   }
 });
 const app = express();

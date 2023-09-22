@@ -1,7 +1,7 @@
 const { ClarifaiStub, grpc } = require("clarifai-nodejs-grpc");
 
 const apiCall = (req, res) => {
-    const PAT = "dc3ea0fc6da94fc4b616df8fdcaa74b6";
+    const PAT = process.env.PAT;
     const USER_ID = "lhackett";
     const APP_ID = "smartbrain";
     const modelId = req.body.modelId;

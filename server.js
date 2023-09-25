@@ -21,6 +21,9 @@ const db = knex({
     }
   }
 });
+
+const app = express();
+
 const corsOptions = {
   origin: 'https://lhackett-smart-brain-0c98f4a72c64.herokuapp.com', // Replace with your frontend URL
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
@@ -28,9 +31,6 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
-const app = express();
-
 app.use(express.json());
 
 app.get("/", (req, res)=> { res.send(db.users) })

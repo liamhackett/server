@@ -21,10 +21,17 @@ const db = knex({
     }
   }
 });
+const corsOptions = {
+  origin: 'https://lhackett-smart-brain-0c98f4a72c64.herokuapp.com', // Replace with your frontend URL
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // You may need this option if you are using cookies or sessions
+};
+
+app.use(cors(corsOptions));
 
 const app = express();
 
-app.use(cors())
+app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res)=> { res.send(db.users) })
